@@ -1,5 +1,7 @@
 *.zip
 *.pdf
+*.ppt
+*.pptx
 
 # atmelstudio
 #Build Directories
