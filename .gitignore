@@ -3,6 +3,7 @@
 *.ppt
 *.pptx
 *.out
+*.txt
 
 # atmelstudio
 #Build Directories
