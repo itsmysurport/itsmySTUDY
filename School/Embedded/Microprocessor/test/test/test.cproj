@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>FND_JooSaWi</AssemblyName>
-    <Name>FND_JooSaWi</Name>
-    <RootNamespace>FND_JooSaWi</RootNamespace>
+    <AssemblyName>test</AssemblyName>
+    <Name>test</Name>
+    <RootNamespace>test</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>

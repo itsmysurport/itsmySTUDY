@@ -1,7 +1,7 @@
 #ifndef FND_CHAR_H_
 #define FND_CHAR_H_
 
-#define __A 0x5F 
+#define __A 0x5F
 #define _A_ ~(0x5F)
 #define __B	0x7C
 #define _B_	~(0x7C)
