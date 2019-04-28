@@ -3,7 +3,10 @@
 *.ppt
 *.pptx
 *.out
+<<<<<<< HEAD
 *.txt
+=======
+>>>>>>> cc7d7ec3e339f39a7fa3fc5273e3c1c595bc15b8
 
 # atmelstudio
 #Build Directories
