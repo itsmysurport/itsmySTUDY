@@ -4,11 +4,7 @@
 int main(int argc, char *argv[])
 {
  int fd, id;
-<<<<<<< HEAD
  struct student record;
-=======
- student record;
->>>>>>> c85606ca6b003475052e3949233a1053166e7c1d
  struct flock lock;
  if (argc < 2) {
     fprintf(stderr, "사용법 : %s 파일 \n", argv[0]);

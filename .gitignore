@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.zip
 *.pdf
 *.ppt
@@ -20,3 +21,31 @@
 
 #User Specific Files
 *.atsuo
+=======
+*.zip
+*.pdf
+*.ppt
+*.pptx
+*.out
+<<<<<<< HEAD
+*.txt
+=======
+>>>>>>> cc7d7ec3e339f39a7fa3fc5273e3c1c595bc15b8
+
+# atmelstudio
+#Build Directories
+[Dd]ebug/
+[Rr]elease/
+
+#Build Results
+*.o
+*.d
+*.eep
+*.elf
+*.hex
+*.map
+*.srec
+
+#User Specific Files
+*.atsuo
+>>>>>>> c85606ca6b003475052e3949233a1053166e7c1d
