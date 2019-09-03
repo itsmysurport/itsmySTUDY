@@ -53,7 +53,7 @@ def test_capture(bot, update):
     with picamera.PiCamera() as camera:
         camera.start_preview()
         time.sleep(5)
-        camera.capture('/home/pi/Desktop/workspace/itsmySTUDY/outwork/rasp_tele_bot/image.jpg')
+        camera.capture('/home/pi/workspace/itsmySTUDY/outwork/rasp_tele_bot/image.jpg')
         camera.stop_preview()
 
 updater = Updater(TOKEN)
