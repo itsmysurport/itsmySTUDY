@@ -1,4 +1,6 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import time
+import picamera
 
 TOKEN = '751327134:AAER637xGXY8GtlvZtPeeizNA4T--oWjd9g'
 
@@ -48,6 +50,11 @@ def alarm_set(bot, update):
 def test_capture(bot, update):
     global set_id
     bot.send_message(chat_id=set_id, text="정상적으로 작동합니다!\n\n")
+    with picamera.PiCamera() as camera:
+        camera.start_preview()
+        time.sleep(5)
+        camera.capture('/home/pi/Desktop/workspace/itsmySTUDY/outwork/rasp_tele_bot')
+        camera.stop_preview()
 
 updater = Updater(TOKEN)
 
