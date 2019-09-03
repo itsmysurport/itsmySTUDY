@@ -6,12 +6,11 @@ namespace ConsoleArg
     {
         static void Main(string[] args)
         {
-            if (args.Length == 0)
-            {
-                Console.WriteLine("Usgae : Helloworld.exe <NAME>.");
-                return;
-            }
-            Console.WriteLine("Hello, {0}!", args[0]);
+            sbyte na = -10;
+            sbyte nb = 20;
+
+            Console.WriteLine("a = {na}, b = {nb}", na, nb);
+
         }
     }
 }
