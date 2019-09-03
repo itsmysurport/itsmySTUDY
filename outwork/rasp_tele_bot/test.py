@@ -56,6 +56,10 @@ def test_capture(bot, update):
         camera.capture('/home/pi/workspace/itsmySTUDY/outwork/rasp_tele_bot/image.jpg')
         camera.stop_preview()
 
+def send_photo(bot, update):
+    global set_id
+    bot.send_photo(chat_id = set_id, photo=open('image.jpg', 'rb'))
+
 updater = Updater(TOKEN)
 
 updater.dispatcher.add_handler(CommandHandler('start', start_command))
@@ -63,7 +67,8 @@ updater.dispatcher.add_handler(CommandHandler('on', on_command))
 
 #real
 updater.dispatcher.add_handler(CommandHandler('set', alarm_set))
-updater.dispatcher.add_handler(CommandHandler('test', test_capture))
+updater.dispatcher.add_handler(CommandHandler('capture', test_capture))
+updater.dispatcher.add_handler(CommandHandler('sendme', send_photo))
 
 message_handler = MessageHandler(Filters.text, get_message)
 updater.dispatcher.add_handler(message_handler)
