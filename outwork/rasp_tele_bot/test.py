@@ -2,6 +2,12 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import time
 import picamera
 
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(21, GPIO.OUT)
+GPIO.output(21, GPIO.LOW)
+
 TOKEN = '751327134:AAER637xGXY8GtlvZtPeeizNA4T--oWjd9g'
 
 def get_message(bot, update) :
@@ -35,6 +41,13 @@ def on_command(bot, update):
     id = check_id(bot, update)
     nickname = check_nickname(bot, update)
     bot.send_message(chat_id=id, text="안녕하십니까, " + nickname + "님, led의 전원을 켜드리겠습니다!\n\n")
+    GPIO.output(21, GPIO.HIGH)
+
+def off_command(bot, update):
+    id = check_id(bot, update)
+    nickname = check_nickname(bot, update)
+    bot.send_message(chat_id=id, text="안녕하십니까, " + nickname + "님, led의 전원을 꺼드리겠습니다!\n\n")
+    GPIO.output(21, GPIO.LOW)
 
 def start_command(bot, update):
     id = check_id(bot, update)
@@ -65,6 +78,7 @@ updater = Updater(TOKEN)
 
 updater.dispatcher.add_handler(CommandHandler('start', start_command))
 updater.dispatcher.add_handler(CommandHandler('on', on_command))
+updater.dispatcher.add_handler(CommandHandler('off', off_command))
 
 #real
 updater.dispatcher.add_handler(CommandHandler('set', alarm_set))
