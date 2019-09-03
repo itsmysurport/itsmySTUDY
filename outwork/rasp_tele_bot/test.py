@@ -58,6 +58,7 @@ def test_capture(bot, update):
 
 def send_photo(bot, update):
     global set_id
+    bot.send_message(chat_id=set_id, text="사진을 보내는 중입니다! 잠시만 기다려주세요!\n\n")
     bot.send_photo(chat_id = set_id, photo=open('image.jpg', 'rb'))
 
 updater = Updater(TOKEN)
