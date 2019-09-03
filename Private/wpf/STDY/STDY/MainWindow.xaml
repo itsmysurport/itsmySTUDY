@@ -1,0 +1,16 @@
+﻿<Window x:Class="STDY.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:STDY"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Canvas Background="Beige">
+        <Button Canvas.Left="10" Canvas.Top="10" Width="80" Height="25" Content="1"/>
+        <Button Canvas.Left="100" Canvas.Top="10" Width="80" Height="25" Content="2"/>
+        <Button Canvas.Left="10" Canvas.Bottom="10" Width="80" Height="25" Content="3"/>
+        <Button Canvas.Left="100" Canvas.Bottom="10" Width="80" Height="25" Content="4" 
+                Background="Blue" Foreground="White"/>
+    </Canvas>
+</Window>
