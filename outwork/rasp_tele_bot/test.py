@@ -39,10 +39,25 @@ def start_command(bot, update):
     nickname = check_nickname(bot, update)
     bot.send_message(chat_id=id, text="안녕하세요 " + nickname +"! 새로운 챗봇입니다!\n\n")
 
+def alarm_set(bot, update):
+    global set_id
+    set_id = check_id(bot, update)
+    nickname = check_nickname(bot, update)
+    bot.send_message(chat_id=set_id, text="이제" + nickname + "님으로 알람이 설정 되었습니다.\n\n")
+
+def test_capture(bot, update):
+    global set_id
+    bot.send_message(chat_id=set_id, text="정상적으로 작동합니다!\n\n")
+
 updater = Updater(TOKEN)
 
 updater.dispatcher.add_handler(CommandHandler('start', start_command))
 updater.dispatcher.add_handler(CommandHandler('on', on_command))
+
+#real
+updater.dispatcher.add_handler(CommandHandler('set', alarm_set))
+updater.dispatcher.add_handler(CommandHandler('test', test_capture))
+
 message_handler = MessageHandler(Filters.text, get_message)
 updater.dispatcher.add_handler(message_handler)
 
