@@ -110,6 +110,6 @@ updater.dispatcher.add_handler(message_handler)
 
 updater.start_polling(timeout=3, clean=True)
 
-t = threading.Thread(target=)
+t = threading.Thread(target=readData, args=())
 t.start()
 updater.idle()
