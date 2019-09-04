@@ -1,14 +1,34 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import time
 import picamera
-
+import threading
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
+sensor = 20
+GPIO.setup(sensor, GPIO.IN)
 GPIO.setup(21, GPIO.OUT)
 GPIO.output(21, GPIO.LOW)
+time.sleep(2)
+print("Detecting Motion")
 
 TOKEN = '751327134:AAER637xGXY8GtlvZtPeeizNA4T--oWjd9g'
+
+def readData():
+    timeCount = 0
+    timerBool = False
+    while True:
+        if GPIO.input(sensor):
+                print("Motion Detected")
+                timerBool = True
+                if timeCount >= 30 or timeCount == 0:
+                        print('Call Function')
+                        timeCount = 0
+        else:
+                print("finding...")
+        if timerBool:
+                timeCount += 2
+        time.sleep(2)    
 
 def get_message(bot, update) :
     if update.message.text == '따라하지마'\
@@ -89,4 +109,7 @@ message_handler = MessageHandler(Filters.text, get_message)
 updater.dispatcher.add_handler(message_handler)
 
 updater.start_polling(timeout=3, clean=True)
+
+t = threading.Thread(target=)
+t.start()
 updater.idle()
