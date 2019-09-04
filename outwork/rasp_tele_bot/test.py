@@ -85,7 +85,7 @@ def test_capture(bot, update):
     bot.send_message(chat_id=set_id, text="정상적으로 작동합니다!\n\n")
     with picamera.PiCamera() as camera:
         camera.start_preview()
-        time.sleep(5)
+        #time.sleep(1)
         camera.capture('image.jpg')
         camera.stop_preview()
 
