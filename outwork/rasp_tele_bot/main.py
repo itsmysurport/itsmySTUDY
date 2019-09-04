@@ -103,7 +103,6 @@ updater.dispatcher.add_handler(CommandHandler('off', off_command))
 # ALARM SET COMMAND HANDLER
 updater.dispatcher.add_handler(CommandHandler('set', alarm_set))
 
-updater.dispatcher.add_handler(message_handler)
 updater.start_polling(timeout=3, clean=True)
 
 # Run Function: readData() using thread
