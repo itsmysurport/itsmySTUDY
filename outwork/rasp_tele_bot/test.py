@@ -1,4 +1,5 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import telegram
 import time
 import picamera
 import threading
@@ -13,6 +14,7 @@ time.sleep(2)
 print("Detecting Motion")
 
 TOKEN = '751327134:AAER637xGXY8GtlvZtPeeizNA4T--oWjd9g'
+bot=telegram.Bot(token="751327134:AAER637xGXY8GtlvZtPeeizNA4T--oWjd9g")
 
 def readData():
     timeCount = 0
@@ -23,6 +25,15 @@ def readData():
                 timerBool = True
                 if timeCount >= 30 or timeCount == 0:
                         print('Call Function')
+                        global set_id
+                        bot.send_message(chat_id=set_id, text="정상적으로 작동합니다!\n\n")
+                        with picamera.PiCamera() as camera:
+                                camera.start_preview()
+                                time.sleep(3)
+                                camera.capture('image.jpg')
+                                camera.stop_preview()
+                        bot.send_message(chat_id=set_id, text="사진을 보내는 중입니다! 잠시만 기다려주세요!\n\n")
+                        bot.send_photo(chat_id = set_id, photo=open('image.jpg', 'rb'))
                         timeCount = 0
         else:
                 print("finding...")
@@ -85,7 +96,7 @@ def test_capture(bot, update):
     bot.send_message(chat_id=set_id, text="정상적으로 작동합니다!\n\n")
     with picamera.PiCamera() as camera:
         camera.start_preview()
-        #time.sleep(1)
+        time.sleep(3)
         camera.capture('image.jpg')
         camera.stop_preview()
 
