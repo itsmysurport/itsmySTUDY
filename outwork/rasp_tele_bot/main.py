@@ -41,7 +41,7 @@ def readData():
                 if timeCount >= 30 or timeCount == 0:
                         print('Call Function')
                         global set_id
-                        bot.send_message(chat_id=set_id, text="정상적으로 작동합니다!\n\n")
+                        bot.send_message(chat_id=set_id, text="사람을 감지했습니다!\n\n")
                         with picamera.PiCamera() as camera:
                                 camera.start_preview()
                                 time.sleep(3)
@@ -98,6 +98,8 @@ def alarm_set(bot, update):
     set_id = check_id(bot, update)
     nickname = check_nickname(bot, update)
     bot.send_message(chat_id=set_id, text="이제" + nickname + "님으로 알람이 설정 되었습니다.\n\n")
+    t = threading.Thread(target=readData, args=())
+    t.start()
 
 updater = Updater(TOKEN)
 
@@ -111,6 +113,4 @@ updater.dispatcher.add_handler(CommandHandler('set', alarm_set))
 updater.start_polling(timeout=3, clean=True)
 
 # Run Function: readData() using thread
-t = threading.Thread(target=readData, args=())
-t.start()
 updater.idle()
