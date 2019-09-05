@@ -10,11 +10,14 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 sensor = 20
 led = 21
+buzzer = 16
 
 # GPIO SETUP
 GPIO.setup(sensor, GPIO.IN)
 GPIO.setup(led, GPIO.OUT)
+GPIO.setup(buzzer, GPIO.OUT)
 GPIO.output(led, GPIO.LOW)
+GPIO.output(buzzer, GPIO.LOW)
 time.sleep(2)
 print("Detecting Motion")
 
@@ -80,12 +83,14 @@ def on_command(bot, update):
     nickname = check_nickname(bot, update)
     bot.send_message(chat_id=id, text="안녕하십니까, " + nickname + "님, led의 전원을 켜드리겠습니다!\n\n")
     GPIO.output(led, GPIO.HIGH)
+    GPIO.output(buzzer, GPIO.HIGH)
 
 def off_command(bot, update):
     id = check_id(bot, update)
     nickname = check_nickname(bot, update)
     bot.send_message(chat_id=id, text="안녕하십니까, " + nickname + "님, led의 전원을 꺼드리겠습니다!\n\n")
     GPIO.output(led, GPIO.LOW)
+    GPIO.output(buzzer, GPIO.LOW)
 
 # This code exists to set the alarm and sets the main user to receive pictures from the readData() function.
 def alarm_set(bot, update):
