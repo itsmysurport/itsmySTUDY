@@ -1,0 +1,19 @@
+﻿<Window x:Class="ex_WrapPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ex_WrapPanel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <WrapPanel>
+        <Button Width="70" Height="100" Margin="10" Content="1"/>
+        <Button Width="70" Height="100" Margin="10" Content="2"/>
+        <Button Width="70" Height="100" Margin="10" Content="3"/>
+        <Button Width="70" Height="100" Margin="10" Content="4"/>
+        <Button Width="70" Height="100" Margin="10" Content="5"/>
+        <Ellipse Width="210" Height="100" Margin="10" Fill="Blue"/>
+        <Button Width="100" Height="50" Margin="10" Content="Hi"/>
+
+    </WrapPanel>
+</Window>
