@@ -6,11 +6,10 @@
 #include <SoftwareSerial.h> // L293D 모터 드라이브 라이브러리
 #include <AFMotor.h>          // 서보모터 라이브러리
 
-AF_DCMotor motor_3(3);     // 모터 1 객체         
-AF_DCMotor motor_4(4);     // 모터 2 객체 
+AF_Stepper motor(20, 2);
 
-#define sampling 280
-#define waiting 40
+int sampling = 280;
+int waiting = 40;
 float stop_time = 9680;
 
 int dust_sensor = A0;
@@ -22,10 +21,8 @@ float dustDensity=0;
 
 void setup() {
   Serial.begin(9600);
-  motor_3.setSpeed(300);    // 모터 1 속도 설정          
-  motor_3.run(RELEASE);     // 모터 1 돌리지 않는 상태
-  motor_4.setSpeed(300);    // 모터 1 속도 설정          
-  motor_4.run(RELEASE);     // 모터 1 돌리지 않는 상태
+  motor.setSpeed(100);
+  motor.release();
   pinMode(sensor_led, OUTPUT);
 }
 
@@ -51,11 +48,9 @@ void loop() {
       Serial.println("*******");
       Serial.println("WARNING");
       Serial.println("*******");
-      motor_3.run(FORWARD);
-      motor_4.run(FORWARD);
+      motor.step(100, FORWARD, MICROSTEP);
       delay(10000);         //GO 10second
-      motor_3.run(RELEASE);
-      motor_4.run(RELEASE);
+      motor.release();
       state = true;
     }
   }
@@ -66,11 +61,9 @@ void loop() {
       Serial.println("*******");
       Serial.println("WARNING OUT");
       Serial.println("*******");
-      motor_3.run(BACKWARD);
-      motor_4.run(BACKWARD);
+      motor.step(100, BACKWARD, MICROSTEP);
       delay(10000);         //GO 10second
-      motor_3.run(RELEASE);
-      motor_4.run(RELEASE);
+      motor.release();
       state = false;
     }
   }

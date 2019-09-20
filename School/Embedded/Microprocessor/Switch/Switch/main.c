@@ -3,6 +3,7 @@
 // PULLUP
 // When I push the button(LOW), status is 0
 // When I release the button(HIGH), status is 1
+// ½ÂÈ£ ¹Ùº¸
 int main(void)
 {
 	DDRD = 0xff;
