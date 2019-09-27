@@ -1,4 +1,4 @@
-#include <Wire.h>                        // i2C 통신을 위한 라이브러리
+??#include <Wire.h>                        // i2C 통신을 위한 라이브러리
 #include <LiquidCrystal_I2C.h>        // LCD 1602 I2C용 라이브러리
 #include <AFMotor.h>          // 서보모터 라이브러리
 
